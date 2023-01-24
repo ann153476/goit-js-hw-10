@@ -29,10 +29,13 @@ const countryInfo = document.querySelector('.country-info');
 let inputCountry ="";
 function hendleInput (e){
 e.preventDefault();
-let c = country(myInput.value.trim());
-console.log(myInput.value.trim());
+if(myInput.value.trim()===""){
+          Notiflix.Notify.failure('Введи букви а не пробіл а не пробіл:) ')
+          return
+          }
+let countryObj = country(myInput.value.trim());
 //console.log(myInput);
-c.then(
+countryObj.then(
 value =>{
         //  console.log(value,"<<<<<<");
         //  console.log(value.length);
@@ -41,13 +44,13 @@ value =>{
         //  console.log(value[0].population);
         //  console.log(value[0].flags.svg);
         //  console.log(value[0].languages);
+        
         if (value.length>10) {
             countryInfo.innerHTML = '';
             countryList.innerHTML = '';
           }
-        
-        console.log(value,"<<<");
-         if (value.length > 3) {
+  
+        if (value.length > 10) {
             countryInfo.innerHTML = '';
             countryInfo.innerHTML = '';
             Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
@@ -75,7 +78,12 @@ value =>{
 )
 .catch(
   error => {
+    countryInfo.innerHTML = '';
+    countryList.innerHTML = '';
         Notiflix.Notify.failure('Oops, there is no country with that name')
+      
+    
+       
   }      
 );
 
