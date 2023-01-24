@@ -45,9 +45,7 @@ value =>{
             countryInfo.innerHTML = '';
             countryList.innerHTML = '';
           }
-        if(value.status===404){
-        Notiflix.Notify.failure('Oops, there is no country with that name')
-        }
+        
         console.log(value,"<<<");
          if (value.length > 3) {
             countryInfo.innerHTML = '';
@@ -74,6 +72,11 @@ value =>{
           countryList.insertAdjacentHTML("beforeend", markup);
          }
         }
+)
+.catch(
+  error => {
+        Notiflix.Notify.failure('Oops, there is no country with that name')
+  }      
 );
 
 //console.log(c.finally);
