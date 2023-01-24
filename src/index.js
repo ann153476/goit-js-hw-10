@@ -66,11 +66,7 @@ value =>{
             countryInfo.innerHTML = '';
             const markup =value.map(
             ({ name, flags }) =>
-              `<li style="display: flex;
-              justify-content: space between;
-              list-style: none;
-              margin: 5px
-              color:green;">
+              `<li>
               <p style="margin: 5px">${name.official}:</p>
               <img src="${flags.svg}" alt="${name.official}" width='20' height='15' >
               </li>`).join('');
