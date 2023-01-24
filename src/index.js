@@ -54,6 +54,7 @@ value =>{
             countryInfo.innerHTML = '';
             Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
          } else if (value.length === 1) {
+            countryInfo.innerHTML = '';
             countryList.innerHTML = '';
             const markup =`<div> 
            <h2>Name of country:  ${value[0].name.official}</h2>
